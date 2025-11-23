@@ -6,7 +6,10 @@ import (
 )
 
 func main() {
-    const token = ""
+    token := os.Getenv("BOT_TOKEN")
+    if token == "" {
+        log.Fatal("BOT_TOKEN is not set")
+    }
 
     dataFile := os.Getenv("PERSISTENCE_FILE")
     if dataFile == "" {
